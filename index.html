@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Zion Adedayo | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
   <style>
@@ -11,6 +11,7 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Inter', sans-serif;
       background-color: #0f172a;
@@ -18,10 +19,12 @@
       scroll-behavior: smooth;
       animation: fadeIn 1s ease-in;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
+
     header {
       position: fixed;
       top: 0;
@@ -34,77 +37,61 @@
       z-index: 1000;
       box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
+
     header h1 {
       font-family: 'Poppins', sans-serif;
       font-size: 2rem;
       color: #00f0ff;
-      z-index: 1001;
     }
 
-    /* NAVIGATION */
     nav {
       display: flex;
-      gap: 1.5rem;
+      align-items: center;
     }
+
     nav a {
+      margin-left: 1.5rem;
       text-decoration: none;
       color: #fff;
       font-weight: bold;
       transition: color 0.3s ease;
     }
+
     nav a:hover {
       color: #FFD700;
     }
 
-    /* MOBILE MENU */
-    .hamburger {
+    .menu-toggle {
       display: none;
-      flex-direction: column;
+      font-size: 2rem;
+      color: #00f0ff;
       cursor: pointer;
-      z-index: 1001;
-    }
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background-color: #fff;
-      margin: 4px 0;
-      transition: all 0.4s ease;
-    }
-
-    .mobile-nav {
-      display: none;
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 60%;
-      height: 100vh;
-      background: #0f172a;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      transition: right 0.4s ease;
-      z-index: 1000;
-    }
-    .mobile-nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.25rem;
-      padding: 1rem;
-      font-weight: bold;
-    }
-    .mobile-nav.open {
-      right: 0;
     }
 
     @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
       nav {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: #0f172a;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
         display: none;
       }
-      .hamburger {
+
+      nav.show {
         display: flex;
       }
-      .mobile-nav {
-        display: flex;
+
+      nav a {
+        margin: 0.5rem 0;
       }
     }
 
@@ -122,17 +109,22 @@
       height: 100vh;
       background: url('https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
       text-align: center;
-      color: white;
+      color: #0f172a;
     }
+
     .hero h2 {
       font-size: 3rem;
       font-family: 'Poppins', sans-serif;
       margin-bottom: 1rem;
+      color: white;
     }
+
     .hero p {
       font-size: 1.25rem;
       margin-bottom: 2rem;
+      color: white;
     }
+
     .hero a {
       background: #0f172a;
       color: #00f0ff;
@@ -142,6 +134,7 @@
       text-decoration: none;
       transition: all 0.3s ease;
     }
+
     .hero a:hover {
       background: #1e293b;
     }
@@ -158,6 +151,7 @@
       display: grid;
       gap: 2rem;
     }
+
     .projects {
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
@@ -170,10 +164,12 @@
       box-shadow: 0 6px 16px rgba(0,0,0,0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .project-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 12px 24px rgba(0,0,0,0.3);
     }
+
     .project-card button {
       margin-top: 1rem;
       background: #00f0ff;
@@ -217,6 +213,7 @@
       color: #0f172a;
       text-align: center;
     }
+
     .contact a, .resume-download {
       background: #0f172a;
       color: #00f0ff;
@@ -228,6 +225,7 @@
       display: inline-block;
       transition: background 0.3s ease;
     }
+
     .contact a:hover, .resume-download:hover {
       background: #1e293b;
     }
@@ -245,28 +243,14 @@
 
   <header>
     <h1>Zion</h1>
-
-    <nav>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <nav id="nav-links">
       <a href="#home">Home</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
-
-    <div class="hamburger" id="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
   </header>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-nav" id="mobileNav">
-    <a href="#home">Home</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </div>
 
   <section id="home" class="hero">
     <h2>Adedayo Zion</h2>
@@ -285,16 +269,16 @@
       <div class="project-card">
         <h4>Circles</h4>
         <p>An interactive UI with responsive design.</p>
-        <a href="https://www.figma.com/proto/URXBNthnUbqwUmiB4o7PbX/CIRCLES"><button>View</button></a>
+        <a href="https://www.figma.com/proto/URXBNthnUbqwUmiB4o7PbX/CIRCLES" target="_blank"><button>View</button></a>
       </div>
       <div class="project-card">
         <h4>TickTacToe Game</h4>
-        <p>A fun game with cool features and good design.</p>
+        <p>A fun game with good design.</p>
         <a href="https://ticktactoe-alpha.vercel.app/" target="_blank"><button>View</button></a>
       </div>
-      <div class="project-card">
+       <div class="project-card">
         <h4>Simple Equations Solver</h4>
-        <p>A simple equation ai solver.</p>
+        <p>Simple Equation AI solver.</p>
         <a href="https://mathssolver-six.vercel.app/" target="_blank"><button>View</button></a>
       </div>
     </div>
@@ -303,11 +287,11 @@
   <section id="skills">
     <h3 class="section-title">My Toolbox</h3>
     <div class="skills">
-      <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"/><span>HTML</span></div>
-      <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"/><span>CSS</span></div>
-      <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"/><span>JavaScript</span></div>
-      <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"/><span>React</span></div>
-      <div class="skill-badge"><img src="https://img.icons8.com/ios-filled/50/000000/design.png" alt="Design"/><span>UI/UX</span></div>
+      <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"/><span>HTML</span></div>
+      <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"/><span>CSS</span></div>
+      <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"/><span>JavaScript</span></div>
+      <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"/><span>React</span></div>
+      <div class="skill-badge"><img src="https://img.icons8.com/ios-filled/50/000000/design.png"/><span>UI/UX</span></div>
     </div>
   </section>
 
@@ -323,28 +307,24 @@
   </footer>
 
   <script>
+    // Footer year update
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Mobile nav toggle
-    const hamburger = document.getElementById('hamburger');
-    const mobileNav = document.getElementById('mobileNav');
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
 
-    hamburger.addEventListener('click', () => {
-      mobileNav.classList.toggle('open');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
     });
 
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-        mobileNav.classList.remove('open'); // close mobile menu on link click
+    // Close nav when a link is clicked (mobile only)
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          navLinks.classList.remove('show');
+        }
       });
-    });
-
-    window.addEventListener('scroll', () => {
-      const header = document.querySelector('header');
-      header.style.backgroundColor = window.scrollY > 50 ? '#0f172a' : 'rgba(15, 23, 42, 0.9)';
     });
   </script>
 </body>
