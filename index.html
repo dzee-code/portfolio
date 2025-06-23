@@ -70,7 +70,7 @@
       background: #0f172a;
       display: flex;
       flex-direction: column;
-      padding: 2rem;
+      padding: 2rem 1.5rem;
       gap: 1.5rem;
       transition: right 0.3s ease;
       z-index: 999;
@@ -78,6 +78,14 @@
 
     .mobile-nav.show {
       right: 0;
+    }
+
+    .mobile-nav .close-btn {
+      font-size: 2rem;
+      color: #00f0ff;
+      align-self: flex-start; /* moved to left */
+      cursor: pointer;
+      margin-bottom: 1rem;
     }
 
     .mobile-nav a {
@@ -89,13 +97,6 @@
 
     .mobile-nav a:hover {
       color: #FFD700;
-    }
-
-    .close-btn {
-      font-size: 2rem;
-      color: #00f0ff;
-      align-self: flex-end;
-      cursor: pointer;
     }
 
     @media (max-width: 768px) {
@@ -296,10 +297,10 @@
         <p>A fun game with good design.</p>
         <a href="https://ticktactoe-alpha.vercel.app/" target="_blank"><button>View</button></a>
       </div>
-       <div class="project-card">
-        <h4>Simple Equation AI</h4>
-        <p>Mths solver AI.</p>
-        <a href="https://ticktactoe-alpha.vercel.app/" target="_blank"><button>View</button></a>
+      <div class="project-card">
+        <h4>Simple Equation Solver AI</h4>
+        <p>Simple Equation solver.</p>
+        <a href="https://mathssolver-six.vercel.app/" target="_blank"><button>View</button></a>
       </div>
     </div>
   </section>
@@ -341,7 +342,6 @@
       mobileNav.classList.remove('show');
     });
 
-    // Close nav when a link is clicked
     mobileNav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileNav.classList.remove('show');
