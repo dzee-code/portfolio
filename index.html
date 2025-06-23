@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zion Adedayo | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
   <style>
@@ -11,7 +11,6 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Inter', sans-serif;
       background-color: #0f172a;
@@ -23,14 +22,14 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.95);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
-
     header h1 {
       font-family: 'Poppins', sans-serif;
       font-size: 2rem;
@@ -38,42 +37,29 @@
     }
 
     nav {
-      display: flex;
-      align-items: center;
-    }
-
-    nav a {
-      margin-left: 1.5rem;
-      text-decoration: none;
-      color: #fff;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #FFD700;
+      display: none;
     }
 
     .menu-toggle {
-      display: none;
       font-size: 2rem;
       color: #00f0ff;
       cursor: pointer;
+      z-index: 1001;
     }
 
     .mobile-nav {
       position: fixed;
       top: 0;
       right: -100%;
-      height: 100vh;
       width: 250px;
-      background: #0f172a;
+      height: 100vh;
+      background: #111827;
       display: flex;
       flex-direction: column;
-      padding: 2rem 1.5rem;
+      padding: 2rem 1rem;
       gap: 1.5rem;
       transition: right 0.3s ease;
-      z-index: 999;
+      z-index: 1000;
     }
 
     .mobile-nav.show {
@@ -81,40 +67,38 @@
     }
 
     .close-btn {
-      font-size: 2.5rem;
-      font-weight: bold;
+      font-size: 2rem;
       color: #ff4d4d;
       background: none;
       border: none;
+      align-self: flex-end;
       cursor: pointer;
-      align-self: flex-start;
       margin-bottom: 1rem;
-      transition: transform 0.2s ease;
-    }
-
-    .close-btn:hover {
-      transform: scale(1.2);
-      color: #ff0000;
     }
 
     .mobile-nav a {
-      color: #fff;
+      color: white;
       text-decoration: none;
       font-size: 1.2rem;
       font-weight: bold;
     }
 
-    .mobile-nav a:hover {
-      color: #FFD700;
-    }
-
-    @media (max-width: 768px) {
-      nav {
+    @media (min-width: 768px) {
+      .menu-toggle {
         display: none;
       }
-
-      .menu-toggle {
-        display: block;
+      nav {
+        display: flex;
+      }
+      nav a {
+        margin-left: 1.5rem;
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      nav a:hover {
+        color: #FFD700;
       }
     }
 
@@ -125,26 +109,17 @@
     }
 
     .hero {
+      height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      background: url('https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
       text-align: center;
+      background: url('https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
     }
 
-    .hero h2 {
-      font-size: 3rem;
-      font-family: 'Poppins', sans-serif;
+    .hero h2, .hero p {
+      color: white;
       margin-bottom: 1rem;
-      color: white;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      color: white;
     }
 
     .hero a {
@@ -183,12 +158,13 @@
       color: #0f172a;
       padding: 1.5rem;
       border-radius: 12px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .project-card:hover {
       transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
     }
 
     .project-card button {
@@ -218,7 +194,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       padding: 10px;
       text-align: center;
     }
@@ -264,16 +240,15 @@
 
   <header>
     <h1>Zion</h1>
-    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
     <nav>
       <a href="#home">Home</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
   </header>
 
-  <!-- Mobile Slide Nav -->
   <div class="mobile-nav" id="mobile-nav">
     <button class="close-btn" id="close-btn">&times;</button>
     <a href="#home">Home</a>
@@ -283,9 +258,11 @@
   </div>
 
   <section id="home" class="hero">
-    <h2>Adedayo Zion</h2>
-    <p>Crafting Stunning Frontend Experiences</p>
-    <a href="#contact">Hire Me</a>
+    <div>
+      <h2>Adedayo Zion</h2>
+      <p>Crafting Stunning Frontend Experiences</p>
+      <a href="#contact">Hire Me</a>
+    </div>
   </section>
 
   <section id="projects">
@@ -299,14 +276,14 @@
       <div class="project-card">
         <h4>Circles</h4>
         <p>An interactive UI with responsive design.</p>
-        <a href="https://www.figma.com/proto/URXBNthnUbqwUmiB4o7PbX/CIRCLES" target="_blank"><button>View</button></a>
+        <a href="https://www.figma.com/proto/URXBNthnUbqwUmiB4o7PbX/CIRCLES"><button>View</button></a>
       </div>
       <div class="project-card">
         <h4>TickTacToe Game</h4>
-        <p>A fun game with good design.</p>
+        <p>A fun game with features and good design.</p>
         <a href="https://ticktactoe-alpha.vercel.app/" target="_blank"><button>View</button></a>
       </div>
-      <div class="project-card">
+       <div class="project-card">
         <h4>Simple Equation AI</h4>
         <p>Simple Equation Solver.</p>
         <a href="https://mathssolver-six.vercel.app/" target="_blank"><button>View</button></a>
@@ -317,11 +294,11 @@
   <section id="skills">
     <h3 class="section-title">My Toolbox</h3>
     <div class="skills">
-      <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"/><span>HTML</span></div>
-      <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"/><span>CSS</span></div>
-      <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"/><span>JavaScript</span></div>
-      <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"/><span>React</span></div>
-      <div class="skill-badge"><img src="https://img.icons8.com/ios-filled/50/000000/design.png"/><span>UI/UX</span></div>
+      <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"><span>HTML</span></div>
+      <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"><span>CSS</span></div>
+      <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"><span>JavaScript</span></div>
+      <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"><span>React</span></div>
+      <div class="skill-badge"><img src="https://img.icons8.com/ios-filled/50/000000/design.png"><span>UI/UX Design</span></div>
     </div>
   </section>
 
@@ -329,7 +306,7 @@
     <h3 class="section-title">Let's Connect</h3>
     <p>Need a developer who delivers design and performance? Let’s chat!</p>
     <a href="mailto:zeeempirr@gmail.com">Send Email</a>
-    <a href="https://docs.google.com/document/d/1xB87DCudFgPMOjsureDk7ov96qjl8-YlqbsJ_NNKDAU/edit?usp=sharing" class="resume-download" target="_blank">View Resume</a>
+    <a href="https://docs.google.com/document/d/1xB87DCudFgPMOjsureDk7ov96qjl8-YlqbsJ_NNKDAU/edit?usp=sharing" class="resume-download" download>View Resume</a>
   </section>
 
   <footer>
@@ -350,12 +327,7 @@
     closeBtn.addEventListener('click', () => {
       mobileNav.classList.remove('show');
     });
-
-    mobileNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileNav.classList.remove('show');
-      });
-    });
   </script>
+
 </body>
 </html>
