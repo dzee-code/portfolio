@@ -80,12 +80,21 @@
       right: 0;
     }
 
-    .mobile-nav .close-btn {
-      font-size: 2rem;
-      color: #00f0ff;
-      align-self: flex-start; /* moved to left */
+    .close-btn {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #ff4d4d;
+      background: none;
+      border: none;
       cursor: pointer;
+      align-self: flex-start;
       margin-bottom: 1rem;
+      transition: transform 0.2s ease;
+    }
+
+    .close-btn:hover {
+      transform: scale(1.2);
+      color: #ff0000;
     }
 
     .mobile-nav a {
@@ -266,7 +275,7 @@
 
   <!-- Mobile Slide Nav -->
   <div class="mobile-nav" id="mobile-nav">
-    <div class="close-btn" id="close-btn">&times;</div>
+    <button class="close-btn" id="close-btn">&times;</button>
     <a href="#home">Home</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
@@ -298,8 +307,8 @@
         <a href="https://ticktactoe-alpha.vercel.app/" target="_blank"><button>View</button></a>
       </div>
       <div class="project-card">
-        <h4>Simple Equation Solver AI</h4>
-        <p>Simple Equation solver.</p>
+        <h4>Simple Equation AI</h4>
+        <p>Simple Equation Solver.</p>
         <a href="https://mathssolver-six.vercel.app/" target="_blank"><button>View</button></a>
       </div>
     </div>
